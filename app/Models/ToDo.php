@@ -9,5 +9,5 @@ class ToDo extends Model
 {
     use HasFactory;
     protected $table = 'to_do';
-    protected $fillable = ['keterangan', 'nama', 'deadline', 'status'];
+    protected $fillable = ['user_id','keterangan', 'nama', 'deadline', 'status'];
 }

@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Mapel;
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MapelController extends Controller
 {
     public function index()
     {
-        $mapel = Mapel::all();
-        return view('dashboard.pelajaran.jadwal-mapel' , compact('mapel'));
+        $mapel = User::find(Auth::user()->id)->mapel;
+        return view('dashboard.pelajaran.jadwal-mapel' , ['mapel' => $mapel]);
     }
 
     public function add()
@@ -47,6 +49,8 @@ class MapelController extends Controller
             'jam' => 'required',
             'ruangan' => 'required',
         ]);
+
+        $validData['user_id'] = auth()->user()->id;
 
         Mapel::create($validData);
         return redirect()->route('jadwal-pelajaran')->with('success-add', 'Data berhasil diubah');

@@ -8,8 +8,6 @@
 
     <link rel="stylesheet" href="{{ asset('assets') }}/mazer/css/main/app.css">
     <link rel="stylesheet" href="{{ asset('assets') }}/mazer/css/main/app-dark.css">
-    <link rel="shortcut icon" href="{{ asset('assets') }}/mazer/images/logo/favicon.svg" type="image/x-icon">
-    <link rel="shortcut icon" href="{{ asset('assets') }}/mazer/images/logo/favicon.png" type="image/png">
     <link rel="stylesheet" href="{{ asset('assets') }}/bootstrap/icons/bootstrap-icons.css">
     <script src="{{ asset('assets') }}/swal/sweetalert2.js"></script>
 
@@ -30,8 +28,9 @@
                     <i class="bi bi-justify fs-3"></i>
                 </a>
             </header>
-            <div class="page-heading">
+            <div class="page-heading d-flex justify-content-between pe-3">
                 <h3>Dashboard</h3>
+                <h5>Halo, {{ auth()->user()->nama }}</h5>
             </div>
             <div class="page-content">
                 @yield('dashboard')

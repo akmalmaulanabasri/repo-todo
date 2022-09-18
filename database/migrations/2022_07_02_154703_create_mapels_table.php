@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('mapel', function (Blueprint $table) {
             $table->id();
+            $table->string('user_id');
             $table->string('mapel');
             $table->string('guru');
             $table->string('hari');

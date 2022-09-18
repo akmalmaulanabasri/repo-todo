@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('to_do', function (Blueprint $table) {
             $table->id();
+            $table->string('user_id');
             $table->string('nama');
             $table->string('keterangan');
             $table->string('status');

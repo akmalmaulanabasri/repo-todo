@@ -49,8 +49,10 @@
                             <th scope="col">#</th>
                                 <th scope="col">Tugas</th>
                                 <th scope="col">Mapel</th>
+                                <th scope="col">Guru</th>
                                 <th scope="col">Materi</th>
                                 <th scope="col">Deadline</th>
+                                <th scope="col">Status</th>
                                 <th scope="col">Level</th>
                                 <th scope="col">Actions</th>
                             </tr>
@@ -60,9 +62,25 @@
                             <tr>
                                 <th scope="row">{{ $loop->iteration }}</th>
                                 <td>{{ $t->tugas }}</td>
-                                <td>{{ $t->mapel }}</td>
+                                <td>{{ $t->mapel()->first()->mapel }}</td>
+                                <td>{{ $t->mapel()->first()->guru }}</td>
                                 <td>{{ $t->materi }}</td>
                                 <td>{{ $t->deadline }}</td>
+                                <td class="d-flex justify-content-center">
+                                    @if($t->status == "Pending")
+                                        <div class="btn btn-warning rounded-pill px-5 btn-elevated">
+                                            {{ $t->status }}
+                                        </div>
+                                    @elseif($t->status == "Selesai")
+                                        <div class="btn btn-success rounded-pill px-5 btn-elevated">
+                                            {{ $t->status }}
+                                        </div>
+                                    @elseif($t->status == "Dibatalkan")
+                                        <div class="btn btn-secondary rounded-pill px-5 btn-elevated">
+                                            {{ $t->status }}
+                                        </div>
+                                    @endif
+                                </td>
                                 <td>{{ $t->level }}</td>
                                 <td>
                                     <a href="{{ route('edit-tugas', $t->id) }}" class="btn btn-warning"><i class="bi bi-pencil"></i></a>

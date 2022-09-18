@@ -19,7 +19,12 @@
                     @enderror
 
                 <label for="mapel" class="form-label mt-3">Mapel</label>
-                <input type="text" name="mapel" id="mapel" class="form-control @error('mapel')is-invalid @enderror" value="{{ old('mapel') }}">
+                <select name="mapel_id" id="mapel" class="form-control @error('mapel')is-invalid @enderror">
+                        <option value="" selected disabled hidden>Pilih Mapel...</option>
+                    @foreach($mapel as $m)
+                        <option value="{{ $m->id }}">{{ $m->mapel }}</option>
+                    @endforeach
+                </select>
                     @error('mapel')
                     <div class="invalid-feedback">
                         {{ $message }}

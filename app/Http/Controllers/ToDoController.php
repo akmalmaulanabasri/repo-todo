@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\ToDo;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ToDoController extends Controller
 {
     //
     public function index(){
-        $data = ToDo::all();
+        $data = User::find(Auth::user()->id)->todo;
         return view('dashboard.to-do.index', compact('data'));
     }
 
@@ -24,6 +26,7 @@ class ToDoController extends Controller
             'deadline' => 'required'
         ]);
 
+        $validate['user_id'] = auth()->user()->id;
         $validate['status'] = 'Pending';
 
         ToDo::create($validate);
@@ -46,9 +49,18 @@ class ToDoController extends Controller
             'keterangan' => 'required',
             'deadline' => 'required'
         ]);
+
         $status = ToDo::find($id);
         $validate['status'] = $status->status;
         $todo = ToDo::find($id)->update($validate);
         return redirect()->route('to-do')->with('success-update', 'Data berhasil diubah');
+    }
+
+    public function success($id)
+    {
+        $todo = ToDo::findOrFail($id);
+        $todo->status = 'Selesai';
+        $todo->save();
+        return redirect(route('dashboard'))->with('success-todo', 'Tugas berhasil diselesaikan');
     }
 }

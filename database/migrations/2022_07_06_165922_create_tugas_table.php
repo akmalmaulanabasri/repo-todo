@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('tugas', function (Blueprint $table) {
             $table->id();
+            $table->string('user_id');
             $table->string('tugas');
-            $table->string('mapel');
+            $table->string('mapel_id');
             $table->string('materi')->nullable();
             $table->string('deadline');
             $table->string('status');

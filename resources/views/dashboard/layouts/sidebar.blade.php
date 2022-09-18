@@ -54,34 +54,19 @@
                 </li>
 
                 <li class="sidebar-title">Menu Akademi</li>
-                <li class="sidebar-item  has-sub">
-                    <a href="#" class='sidebar-link'>
+                <li class="sidebar-item  ">
+                    <a href="{{ route('jadwal-pelajaran') }}" class='sidebar-link'>
                         <i class="bi bi-layers"></i>
                         <span>Jadwal Pelajaran</span>
                     </a>
-                    <ul class="submenu ">
-                        <li class="submenu-item ">
-                            <a href="{{ route('jadwal-pelajaran') }}">Jadwal Pelajaran</a>
-                        </li>
-                        <li class="submenu-item ">
-                            <a href="{{ route('tambah-pelajaran') }}">Tambah Jadwal Pelajaran</a>
-                        </li>
-                    </ul>
                 </li>
-                <li class="sidebar-item  has-sub">
-                    <a href="#" class='sidebar-link'>
+                <li class="sidebar-item  ">
+                    <a href="{{ route('daftar-tugas') }}" class='sidebar-link'>
                         <i class="bi bi-layers"></i>
                         <span>Tugas</span>
                     </a>
-                    <ul class="submenu ">
-                        <li class="submenu-item ">
-                            <a href="{{ route('daftar-tugas') }}">Daftar Tugas</a>
-                        </li>
-                        <li class="submenu-item ">
-                            <a href="{{ route('tambah-tugas') }}">Tambah Tugas</a>
-                        </li>
-                    </ul>
                 </li>
+
 
                 <li class="sidebar-title">Pengingat</li>
 
@@ -89,6 +74,15 @@
                     <a href="{{ route('to-do') }}" class='sidebar-link'>
                         <i class="bi bi-check-square"></i>
                         <span>To Do List</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-title">User</li>
+
+                <li class="sidebar-item  ">
+                    <a href="{{ route('logout') }}" class='sidebar-link'>
+                        <i class="bi bi-box-arrow-left"></i>
+                        <span>Logout</span>
                     </a>
                 </li>
 
