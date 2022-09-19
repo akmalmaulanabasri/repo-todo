@@ -25,7 +25,7 @@ class AuthController extends Controller
         if(Auth::attempt($check)){
             $request->session()->regenerate();
             $request->session()->flash('success', 'Login successful!');
-            return redirect()->route('home');
+            return redirect()->route('dashboard');
         }
 
         return redirect()->route('login')->with('error-login', 'Invalid username or password!');
