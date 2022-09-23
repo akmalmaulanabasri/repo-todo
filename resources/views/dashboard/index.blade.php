@@ -72,7 +72,7 @@
                                         @endforeach
                                         @if(count($mapel) == 0)
                                             <tr>
-                                                <td colspan="5" class="text-center">Tidak Ada Mapel Hari Ini :)</td>
+                                                <td colspan="6" class="text-center">Tidak Ada Mapel Hari Ini :)</td>
                                             </tr>
                                         @endif
                                     </tbody>
