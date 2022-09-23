@@ -114,7 +114,7 @@
                                         @endforeach
                                         @if(count($mapel_besok) == 0)
                                             <tr>
-                                                <td colspan="5" class="text-center">Tidak Ada Mapel Besok :)</td>
+                                                <td colspan="6" class="text-center">Tidak Ada Mapel Besok :)</td>
                                             </tr>
                                         @endif
                                     </tbody>
