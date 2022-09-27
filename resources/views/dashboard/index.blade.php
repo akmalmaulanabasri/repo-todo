@@ -30,7 +30,7 @@
                     <div class="card-body">
                         @foreach($tugas as $t)
                          <div class="alert alert-danger d-flex justify-content-between">
-                             <p>{{ $t->tugas }} || {{ strtoupper($t->mapel()->first()->mapel) }}</p>
+                             <p>{{ $t->tugas }}<p>
                              <a href="{{ route('tugas-success', $t->id) }}" class="btn btn-success"><i class="bi bi-check-square"></i></a>
                         </div>
                         @endforeach
